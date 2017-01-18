@@ -1,0 +1,26 @@
+version: '2'
+services:
+  hazelcast:
+    image: "agapeteo/hazelcast-zookeeper-member"
+    ports:
+     - "5701"
+    links:
+    - zookeeper
+    environment:
+    - ZOOKEEPER_URL=zookeeper:2181
+    depends_on:
+    - zookeeper
+  zwui:
+    image: "tobilg/zookeeper-webui"
+    ports:
+    - "9090:8080"
+    links:
+    - zookeeper
+    environment:
+    - ZK_DEFAULT_NODE=zookeeper:2181
+    depends_on:
+    - zookeeper
+  zookeeper:
+    image: "zookeeper"
+    ports:
+    - "2181:2181"
