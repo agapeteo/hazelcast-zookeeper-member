@@ -33,6 +33,3 @@ all optional environment variables:
 - *ZOOKEEPER_GROUP* - Zookeeper config group (default: defaultHazelcastGroup) 
 
 <br>
-**TODO:**
-- remote shell
-- even more flexible configuration
